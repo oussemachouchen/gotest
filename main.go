@@ -26,6 +26,7 @@ type Author struct {
 
 var books []Book
 
+//get Books with simple action
 func getBooks(w http.ResponseWriter, s *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(books)
@@ -41,9 +42,13 @@ func getBook(w http.ResponseWriter, s *http.Request) {
 	}
 	json.NewEncoder(w).Encode(&Book{})
 }
+
+//update a book using all informations
 func updateBook(w http.ResponseWriter, s *http.Request) {
 
 }
+
+//delete book with id
 func deleteBook(w http.ResponseWriter, s *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(s)
@@ -55,6 +60,8 @@ func deleteBook(w http.ResponseWriter, s *http.Request) {
 	}
 	json.NewEncoder(w).Encode(books)
 }
+
+//create book
 func createBook(w http.ResponseWriter, s *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	var book Book
